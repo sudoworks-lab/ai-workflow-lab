@@ -1,0 +1,88 @@
+{
+  "eval_id": "eval-2026-05-28",
+  "generated_at": "2026-05-28T16:35:50.505Z",
+  "status": "needs_review",
+  "summary": "Evaluated 6 case(s): 3 positive, 3 negative.",
+  "totals": {
+    "cases": 6,
+    "positive": 3,
+    "negative": 3,
+    "pass": 3,
+    "needs_review": 3,
+    "fail": 0
+  },
+  "case_results": [
+    {
+      "case_id": "golden-docs-maintenance",
+      "case_type": "positive",
+      "status": "pass",
+      "risk_level": "low",
+      "risk_score": 0,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "case has required workflow evaluation fields"
+      ]
+    },
+    {
+      "case_id": "golden-log-auto-collect",
+      "case_type": "positive",
+      "status": "pass",
+      "risk_level": "low",
+      "risk_score": 2,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "case has required workflow evaluation fields"
+      ]
+    },
+    {
+      "case_id": "negative-overbroad-codex-access",
+      "case_type": "negative",
+      "status": "needs_review",
+      "risk_level": "blocked",
+      "risk_score": 12,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "case has required workflow evaluation fields"
+      ]
+    },
+    {
+      "case_id": "negative-sensitive-log-collection",
+      "case_type": "negative",
+      "status": "needs_review",
+      "risk_level": "high",
+      "risk_score": 6,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "case has required workflow evaluation fields"
+      ]
+    },
+    {
+      "case_id": "negative-unreviewed-docs-publish",
+      "case_type": "negative",
+      "status": "needs_review",
+      "risk_level": "blocked",
+      "risk_score": 18,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "case has required workflow evaluation fields"
+      ]
+    },
+    {
+      "case_id": "golden-roblox-game-dev",
+      "case_type": "positive",
+      "status": "pass",
+      "risk_level": "low",
+      "risk_score": 0,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "case has required workflow evaluation fields"
+      ]
+    }
+  ]
+}

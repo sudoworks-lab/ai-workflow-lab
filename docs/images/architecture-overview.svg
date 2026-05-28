@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="640" viewBox="0 0 1180 640" role="img" aria-labelledby="title desc">
+  <title id="title">Architecture overview</title>
+  <desc id="desc">Inputs flow through the CLI and TypeScript core into validation, safety scanning, summary, eval, regression, risk, gate, and report outputs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 8; }
+      .core { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; rx: 8; }
+      .module { fill: #f6f7f9; stroke: #64748b; stroke-width: 1.6; rx: 7; }
+      .output { fill: #f3fbf6; stroke: #16a34a; stroke-width: 2; rx: 8; }
+      .label { font-family: Arial, sans-serif; font-size: 17px; fill: #0f172a; font-weight: 700; }
+      .text { font-family: Arial, sans-serif; font-size: 14px; fill: #334155; }
+      .small { font-family: Arial, sans-serif; font-size: 13px; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .line { stroke: #94a3b8; stroke-width: 1.4; fill: none; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1180" height="640" />
+
+  <rect class="panel" x="40" y="70" width="250" height="500" />
+  <text class="label" x="70" y="110">Inputs</text>
+  <text class="text" x="70" y="155">schemas</text>
+  <text class="text" x="70" y="195">examples</text>
+  <text class="text" x="70" y="235">templates</text>
+  <text class="text" x="70" y="275">workflow.config.json</text>
+  <text class="text" x="70" y="315">risk policy</text>
+  <text class="small" x="70" y="380">Public-safe sample data</text>
+  <text class="small" x="70" y="405">and local configuration</text>
+
+  <rect class="core" x="380" y="55" width="420" height="95" />
+  <text class="label" x="520" y="95">CLI</text>
+  <text class="text" x="465" y="125">npm run cli -- &lt;command&gt;</text>
+
+  <rect class="core" x="380" y="185" width="420" height="85" />
+  <text class="label" x="520" y="220">TypeScript Core</text>
+  <text class="text" x="470" y="248">src/*.ts local workflow tools</text>
+
+  <rect class="module" x="340" y="315" width="170" height="55" />
+  <text class="text" x="388" y="348">validate</text>
+  <rect class="module" x="535" y="315" width="170" height="55" />
+  <text class="text" x="560" y="348">public safety scan</text>
+  <rect class="module" x="730" y="315" width="170" height="55" />
+  <text class="text" x="766" y="348">workflow summary</text>
+
+  <rect class="module" x="340" y="395" width="170" height="55" />
+  <text class="text" x="390" y="428">eval runner</text>
+  <rect class="module" x="535" y="395" width="170" height="55" />
+  <text class="text" x="568" y="428">regression check</text>
+  <rect class="module" x="730" y="395" width="170" height="55" />
+  <text class="text" x="770" y="428">risk score</text>
+
+  <rect class="module" x="440" y="475" width="170" height="55" />
+  <text class="text" x="482" y="508">quality gate</text>
+  <rect class="module" x="635" y="475" width="170" height="55" />
+  <text class="text" x="674" y="508">report generator</text>
+
+  <rect class="output" x="905" y="70" width="235" height="500" />
+  <text class="label" x="940" y="110">Outputs</text>
+  <text class="text" x="940" y="155">artifacts</text>
+  <text class="text" x="940" y="195">reports</text>
+  <text class="text" x="940" y="235">review result</text>
+  <text class="text" x="940" y="275">eval result</text>
+  <text class="small" x="940" y="380">Generated evidence for</text>
+  <text class="small" x="940" y="405">human public review</text>
+
+  <path class="arrow" d="M290 320 C330 320 335 228 378 228" />
+  <path class="arrow" d="M590 150 L590 182" />
+  <path class="arrow" d="M590 270 L590 305" />
+  <path class="line" d="M425 370 L425 390" />
+  <path class="line" d="M620 370 L620 390" />
+  <path class="line" d="M815 370 L815 390" />
+  <path class="line" d="M425 450 L525 475" />
+  <path class="line" d="M620 450 L525 475" />
+  <path class="line" d="M815 450 L720 475" />
+  <path class="arrow" d="M805 505 C860 505 855 320 902 320" />
+</svg>

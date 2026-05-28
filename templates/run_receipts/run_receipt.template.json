@@ -1,0 +1,56 @@
+{
+  "run_id": "sample-run-id",
+  "task_type": "sample_task_type",
+  "started_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "finished_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "task": {
+    "goal": "State what was attempted.",
+    "scope": [
+      "List bounded scope items."
+    ]
+  },
+  "input": {
+    "ref": "path/or/synthetic-reference",
+    "summary": "Summarize synthetic input only."
+  },
+  "expected_output": {
+    "artifacts": [
+      "path/or/artifact-name"
+    ],
+    "acceptance_criteria": [
+      "State expected passing behavior."
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "path/or/artifact-name",
+      "kind": "documentation",
+      "change_summary": "Describe the change."
+    }
+  ],
+  "checks": [
+    {
+      "name": "check_name",
+      "command": "npm run smoke",
+      "result": "pass",
+      "notes": "Record evidence or skipped-check reason."
+    }
+  ],
+  "risk": {
+    "level": "low",
+    "findings": [
+      "Record risk findings."
+    ],
+    "residual_risk": [
+      "Record what still needs human review."
+    ]
+  },
+  "review_points": [
+    "Question the reviewer should answer."
+  ],
+  "status": "pass",
+  "summary": "Short factual summary.",
+  "next_actions": [
+    "Small next action."
+  ]
+}

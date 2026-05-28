@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "projectName",
+    "enabledChecks",
+    "riskPolicy",
+    "reportOutput",
+    "examplesDir",
+    "schemasDir"
+  ],
+  "properties": {
+    "projectName": { "type": "string" },
+    "enabledChecks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "riskPolicy": { "type": "string" },
+    "reportOutput": { "type": "string" },
+    "examplesDir": { "type": "string" },
+    "schemasDir": { "type": "string" }
+  }
+}

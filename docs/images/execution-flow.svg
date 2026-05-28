@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="420" viewBox="0 0 1180 420" role="img" aria-labelledby="title desc">
+  <title id="title">Execution flow</title>
+  <desc id="desc">A prompt or task moves through validation, safety scan, eval, risk score, regression, quality gate, report, human review, and next action.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .step { fill: #ffffff; stroke: #64748b; stroke-width: 1.8; rx: 8; }
+      .gate { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; rx: 8; }
+      .evidence { fill: #f3fbf6; stroke: #16a34a; stroke-width: 2; rx: 8; }
+      .human { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; rx: 8; }
+      .label { font-family: Arial, sans-serif; font-size: 15px; fill: #0f172a; font-weight: 700; }
+      .small { font-family: Arial, sans-serif; font-size: 12px; fill: #475569; }
+      .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1180" height="420" />
+
+  <rect class="step" x="35" y="70" width="130" height="70" />
+  <text class="label" x="66" y="101">prompt</text>
+  <text class="small" x="71" y="122">task</text>
+
+  <rect class="step" x="205" y="70" width="130" height="70" />
+  <text class="label" x="246" y="112">validate</text>
+
+  <rect class="step" x="375" y="70" width="130" height="70" />
+  <text class="label" x="404" y="101">safety</text>
+  <text class="small" x="415" y="122">scan</text>
+
+  <rect class="step" x="545" y="70" width="130" height="70" />
+  <text class="label" x="596" y="112">eval</text>
+
+  <rect class="step" x="715" y="70" width="130" height="70" />
+  <text class="label" x="744" y="101">risk score</text>
+
+  <rect class="step" x="885" y="70" width="130" height="70" />
+  <text class="label" x="915" y="112">regression</text>
+
+  <path class="arrow" d="M165 105 L200 105" />
+  <path class="arrow" d="M335 105 L370 105" />
+  <path class="arrow" d="M505 105 L540 105" />
+  <path class="arrow" d="M675 105 L710 105" />
+  <path class="arrow" d="M845 105 L880 105" />
+
+  <path class="arrow" d="M1015 105 C1085 105 1085 210 1015 210" />
+
+  <rect class="gate" x="885" y="175" width="130" height="70" />
+  <text class="label" x="916" y="203">quality</text>
+  <text class="small" x="925" y="224">gate</text>
+
+  <rect class="evidence" x="715" y="175" width="130" height="70" />
+  <text class="label" x="759" y="203">report</text>
+  <text class="small" x="746" y="224">artifacts</text>
+
+  <rect class="human" x="545" y="175" width="130" height="70" />
+  <text class="label" x="585" y="203">human</text>
+  <text class="small" x="584" y="224">review</text>
+
+  <rect class="step" x="375" y="175" width="130" height="70" />
+  <text class="label" x="406" y="203">next</text>
+  <text class="small" x="403" y="224">action</text>
+
+  <path class="arrow" d="M885 210 L850 210" />
+  <path class="arrow" d="M715 210 L680 210" />
+  <path class="arrow" d="M545 210 L510 210" />
+
+  <text class="small" x="380" y="305">Pass: proceed to publish preparation</text>
+  <text class="small" x="380" y="330">Needs review: resolve evidence, safety, or license questions</text>
+  <text class="small" x="380" y="355">Blocked: fix before public release work continues</text>
+</svg>

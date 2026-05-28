@@ -1,0 +1,18 @@
+{
+  "projectName": "AI Workflow Lab Public",
+  "enabledChecks": [
+    "validate",
+    "scan",
+    "summary",
+    "eval",
+    "regression",
+    "gate",
+    "report",
+    "test",
+    "smoke"
+  ],
+  "riskPolicy": "config/risk_policy.json",
+  "reportOutput": "reports/latest.md",
+  "examplesDir": "examples",
+  "schemasDir": "schemas"
+}

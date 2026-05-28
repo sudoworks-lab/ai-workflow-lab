@@ -1,0 +1,83 @@
+{
+  "case_id": "golden-log-auto-collect",
+  "use_case": "Log auto collection planning",
+  "task": {
+    "goal": "Design a safe, repeatable workflow for collecting, shaping, validating, and recording operational log samples without storing real log content.",
+    "scope": [
+      "Define abstract collection boundaries.",
+      "Describe expected field shape.",
+      "List validation and retention checks.",
+      "Record evidence in a run receipt."
+    ],
+    "non_goals": [
+      "Ingest real logs.",
+      "Connect to production systems.",
+      "Store environment-specific identifiers."
+    ]
+  },
+  "input": {
+    "source_type": "synthetic_operations_note",
+    "summary": "A demo service needs a repeatable troubleshooting workflow that gathers recent error signals, verifies shape, and records what was checked.",
+    "constraints": [
+      "Use abstract source names only.",
+      "Do not include real log lines.",
+      "Separate collection planning from analysis conclusions.",
+      "Keep retention and redaction expectations explicit."
+    ]
+  },
+  "expected_output": {
+    "artifacts": [
+      "collection_scope",
+      "field_shape",
+      "validation_plan",
+      "retention_notes",
+      "run_receipt"
+    ],
+    "acceptance_criteria": [
+      "Collection source and time window are bounded.",
+      "Expected fields are named without real values.",
+      "Validation includes parseability, timestamp presence, and size limits.",
+      "Receipt records checks run and skipped checks."
+    ]
+  },
+  "checks": [
+    {
+      "name": "boundary_check",
+      "method": "Reviewer verifies source names and time windows are generic and bounded.",
+      "expected_result": "No environment-specific source names or real identifiers appear."
+    },
+    {
+      "name": "shape_check",
+      "method": "Reviewer inspects expected field shape and validation plan.",
+      "expected_result": "Required fields and parse checks are explicit."
+    },
+    {
+      "name": "retention_check",
+      "method": "Reviewer confirms retention and redaction expectations are stated.",
+      "expected_result": "The workflow explains when data should be discarded or summarized."
+    }
+  ],
+  "risk": {
+    "level": "high",
+    "failure_modes": [
+      "Real log content is copied into examples.",
+      "Collection scope becomes too broad for safe review.",
+      "The receipt records a pass even when validation was skipped."
+    ],
+    "mitigations": [
+      "Use synthetic summaries rather than log lines.",
+      "Run public-safety scanning before review.",
+      "Require skipped checks to appear in the receipt."
+    ]
+  },
+  "review_points": [
+    "Is the collection scope narrow and generic?",
+    "Are validation and retention separated from analysis?",
+    "Does the receipt make skipped checks visible?"
+  ],
+  "improvement_signals": [
+    "Add a negative case for missing timestamps.",
+    "Add a size-limit check to the validator if sample payloads are introduced.",
+    "Add review-gate language for overbroad collection requests."
+  ]
+}

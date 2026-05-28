@@ -1,0 +1,51 @@
+{
+  "case_id": "template-case-id",
+  "use_case": "Template use case",
+  "task": {
+    "goal": "State the bounded workflow behavior this case should exercise.",
+    "scope": [
+      "List the allowed workflow steps."
+    ],
+    "non_goals": [
+      "List actions this case must not perform."
+    ]
+  },
+  "input": {
+    "source_type": "synthetic_note",
+    "summary": "Describe synthetic input without real operational data.",
+    "constraints": [
+      "Keep all values synthetic.",
+      "Preserve unknowns instead of inventing facts."
+    ]
+  },
+  "expected_output": {
+    "artifacts": [
+      "artifact_name"
+    ],
+    "acceptance_criteria": [
+      "State reviewable success criteria."
+    ]
+  },
+  "checks": [
+    {
+      "name": "scope_check",
+      "method": "Describe how the reviewer checks scope.",
+      "expected_result": "State the expected review outcome."
+    }
+  ],
+  "risk": {
+    "level": "medium",
+    "failure_modes": [
+      "Describe likely failure behavior."
+    ],
+    "mitigations": [
+      "Describe the control that should catch it."
+    ]
+  },
+  "review_points": [
+    "Question the reviewer should answer."
+  ],
+  "improvement_signals": [
+    "Future improvement this case may expose."
+  ]
+}

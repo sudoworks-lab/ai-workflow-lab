@@ -1,0 +1,83 @@
+{
+  "case_id": "golden-docs-maintenance",
+  "use_case": "Documentation maintenance",
+  "task": {
+    "goal": "Convert a documentation update request into scoped edits, verification steps, review criteria, and open questions.",
+    "scope": [
+      "Identify which sections need maintenance.",
+      "Propose edits that improve reproducibility.",
+      "Define verification commands and review points.",
+      "Preserve unknowns instead of inventing missing facts."
+    ],
+    "non_goals": [
+      "Create marketing content.",
+      "Rewrite unrelated documents.",
+      "Claim production readiness without evidence."
+    ]
+  },
+  "input": {
+    "source_type": "synthetic_docs_note",
+    "summary": "A public operations guide needs clearer setup, validation, troubleshooting, and handoff sections.",
+    "constraints": [
+      "Keep the document focused on operations and verification.",
+      "Do not invent unsupported facts.",
+      "Mark unconfirmed assumptions instead of filling gaps.",
+      "Keep public-safety boundaries visible."
+    ]
+  },
+  "expected_output": {
+    "artifacts": [
+      "edit_plan",
+      "updated_sections",
+      "verification_notes",
+      "review_checklist",
+      "open_questions"
+    ],
+    "acceptance_criteria": [
+      "The edited instructions are reproducible.",
+      "Verification commands are concrete.",
+      "Unconfirmed items remain visibly marked.",
+      "The update does not shift into content marketing."
+    ]
+  },
+  "checks": [
+    {
+      "name": "reproducibility_check",
+      "method": "Reviewer follows the written steps at a high level.",
+      "expected_result": "The setup and validation path is clear without hidden assumptions."
+    },
+    {
+      "name": "scope_check",
+      "method": "Reviewer compares changed sections against the task scope.",
+      "expected_result": "No unrelated article-writing or promotional material is added."
+    },
+    {
+      "name": "uncertainty_check",
+      "method": "Reviewer searches for unsupported claims.",
+      "expected_result": "Unknowns are preserved as open questions."
+    }
+  ],
+  "risk": {
+    "level": "medium",
+    "failure_modes": [
+      "The assistant rewrites more than requested.",
+      "The document implies tested behavior without evidence.",
+      "Open questions are removed to make the result look complete."
+    ],
+    "mitigations": [
+      "Require explicit non-goals.",
+      "Require verification notes in expected output.",
+      "Use review-gate status `revise` when evidence is missing."
+    ]
+  },
+  "review_points": [
+    "Are the instructions operational rather than promotional?",
+    "Are verification steps concrete enough to run?",
+    "Are unsupported assumptions visible?"
+  ],
+  "improvement_signals": [
+    "Add a prompt field for source-of-truth files.",
+    "Add a review check for scope creep.",
+    "Add a negative case for unsupported production claims."
+  ]
+}

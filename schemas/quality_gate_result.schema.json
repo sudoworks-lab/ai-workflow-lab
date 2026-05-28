@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "gate_id",
+    "generated_at",
+    "status",
+    "checks",
+    "reasons",
+    "next_action"
+  ],
+  "properties": {
+    "gate_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "status": { "type": "string" },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string" },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_action": { "type": "string" }
+  }
+}

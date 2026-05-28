@@ -1,0 +1,90 @@
+{
+  "run_id": "sample-2026-05-28-0001",
+  "task_type": "docs_maintenance",
+  "started_at": "2026-05-28T10:00:00Z",
+  "finished_at": "2026-05-28T10:08:00Z",
+  "task": {
+    "goal": "Strengthen a public documentation-maintenance workflow sample so it can be reviewed as an operations loop.",
+    "scope": [
+      "Update workflow documentation.",
+      "Validate golden cases and run receipt structure.",
+      "Run public-safety scanning."
+    ]
+  },
+  "input": {
+    "ref": "examples/golden_cases/docs_maintenance.json",
+    "summary": "Synthetic documentation-maintenance case using public-safe sample content."
+  },
+  "expected_output": {
+    "artifacts": [
+      "docs/workflow.md",
+      "examples/golden_cases/docs_maintenance.json",
+      "examples/run_receipts/sample_receipt.json"
+    ],
+    "acceptance_criteria": [
+      "Workflow stages are clear.",
+      "Golden case includes task, input, expected output, checks, risk, and review points.",
+      "Receipt records validation and public-safety checks."
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "docs/workflow.md",
+      "kind": "documentation",
+      "change_summary": "Explains task definition, execution, receipt capture, validation, review, safety, and improvement."
+    },
+    {
+      "path": "examples/golden_cases/docs_maintenance.json",
+      "kind": "golden_case",
+      "change_summary": "Represents documentation maintenance as evaluation data."
+    },
+    {
+      "path": "examples/run_receipts/sample_receipt.json",
+      "kind": "run_receipt",
+      "change_summary": "Shows a synthetic execution record with checks and residual risk."
+    }
+  ],
+  "checks": [
+    {
+      "name": "schema_validation",
+      "command": "npm run validate",
+      "result": "pass",
+      "notes": "Sample receipt and golden cases passed simplified schema validation."
+    },
+    {
+      "name": "smoke_test",
+      "command": "npm run smoke",
+      "result": "pass",
+      "notes": "Required files, JSON parsing, schema validation, safety scan, and summary generation passed."
+    },
+    {
+      "name": "public_safety_scan",
+      "command": "npm run scan",
+      "result": "pass",
+      "notes": "Risky terms were limited to allowlisted policy and checklist locations."
+    }
+  ],
+  "risk": {
+    "level": "low",
+    "findings": [
+      "This is a synthetic public sample and does not prove production readiness.",
+      "Safety scan is term-based and still needs human review."
+    ],
+    "residual_risk": [
+      "A reviewer should confirm the repository does not overclaim operational maturity.",
+      "A reviewer should confirm allowlisted risky terms are policy language only."
+    ]
+  },
+  "review_points": [
+    "Does the workflow read as an engineering operations loop?",
+    "Are the validation and review gates distinct?",
+    "Are public-safety limitations explicit?"
+  ],
+  "status": "pass",
+  "summary": "Synthetic sample receipt showing how a documentation-maintenance workflow can be recorded, validated, reviewed, and improved.",
+  "next_actions": [
+    "Perform human public review before publishing.",
+    "Decide whether to add a license.",
+    "Review negative golden cases and decide whether more rejection paths are needed."
+  ]
+}

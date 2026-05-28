@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "required": [
+    "eval_id",
+    "generated_at",
+    "status",
+    "summary",
+    "totals",
+    "case_results"
+  ],
+  "properties": {
+    "eval_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "status": { "type": "string" },
+    "summary": { "type": "string" },
+    "totals": {
+      "type": "object",
+      "required": ["cases", "positive", "negative", "pass", "needs_review", "fail"],
+      "properties": {
+        "cases": { "type": "integer" },
+        "positive": { "type": "integer" },
+        "negative": { "type": "integer" },
+        "pass": { "type": "integer" },
+        "needs_review": { "type": "integer" },
+        "fail": { "type": "integer" }
+      }
+    },
+    "case_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "case_type",
+          "status",
+          "risk_level",
+          "risk_score",
+          "check_count",
+          "review_point_count",
+          "findings"
+        ],
+        "properties": {
+          "case_id": { "type": "string" },
+          "case_type": { "type": "string" },
+          "status": { "type": "string" },
+          "risk_level": { "type": "string" },
+          "risk_score": { "type": "integer" },
+          "check_count": { "type": "integer" },
+          "review_point_count": { "type": "integer" },
+          "findings": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

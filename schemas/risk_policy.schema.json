@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "policyName",
+    "blockedThreshold",
+    "highThreshold",
+    "mediumThreshold",
+    "categories"
+  ],
+  "properties": {
+    "policyName": { "type": "string" },
+    "blockedThreshold": { "type": "integer" },
+    "highThreshold": { "type": "integer" },
+    "mediumThreshold": { "type": "integer" },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "weight", "terms"],
+        "properties": {
+          "name": { "type": "string" },
+          "weight": { "type": "integer" },
+          "terms": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

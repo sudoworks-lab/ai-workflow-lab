@@ -1,0 +1,21 @@
+{
+  "review_id": "sample-review-id",
+  "review_status": "revise",
+  "summary": "Summarize the review decision.",
+  "evidence": [
+    "List verification evidence."
+  ],
+  "issues": [
+    "List scope, quality, or evidence issues."
+  ],
+  "safety_findings": [
+    "List safety review findings."
+  ],
+  "missing_verification": [
+    "List checks that were not run or not recorded."
+  ],
+  "required_changes": [
+    "List concrete changes required before pass."
+  ],
+  "next_action": "State the next small action."
+}

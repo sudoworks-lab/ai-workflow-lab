@@ -1,0 +1,40 @@
+{
+  "eval_id": "sample-eval-2026-05-28",
+  "generated_at": "2026-05-28T10:10:00Z",
+  "status": "needs_review",
+  "summary": "Evaluated synthetic positive and negative cases with local risk scoring.",
+  "totals": {
+    "cases": 6,
+    "positive": 3,
+    "negative": 3,
+    "pass": 3,
+    "needs_review": 3,
+    "fail": 0
+  },
+  "case_results": [
+    {
+      "case_id": "golden-docs-maintenance",
+      "case_type": "positive",
+      "status": "pass",
+      "risk_level": "medium",
+      "risk_score": 3,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "case has required workflow evaluation fields"
+      ]
+    },
+    {
+      "case_id": "negative-sensitive-log-collection",
+      "case_type": "negative",
+      "status": "needs_review",
+      "risk_level": "high",
+      "risk_score": 8,
+      "check_count": 3,
+      "review_point_count": 3,
+      "findings": [
+        "negative case routes unsafe collection behavior to review"
+      ]
+    }
+  ]
+}

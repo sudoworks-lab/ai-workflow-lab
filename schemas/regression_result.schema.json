@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "required": [
+    "regression_id",
+    "generated_at",
+    "status",
+    "baseline_ref",
+    "current_eval_id",
+    "baseline",
+    "current",
+    "delta",
+    "findings"
+  ],
+  "properties": {
+    "regression_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "status": { "type": "string" },
+    "baseline_ref": { "type": "string" },
+    "current_eval_id": { "type": "string" },
+    "baseline": {
+      "type": "object",
+      "required": ["passed", "needs_review", "failed", "blocked", "risk_high"],
+      "properties": {
+        "passed": { "type": "integer" },
+        "needs_review": { "type": "integer" },
+        "failed": { "type": "integer" },
+        "blocked": { "type": "integer" },
+        "risk_high": { "type": "integer" }
+      }
+    },
+    "current": {
+      "type": "object",
+      "required": ["passed", "needs_review", "failed", "blocked", "risk_high"],
+      "properties": {
+        "passed": { "type": "integer" },
+        "needs_review": { "type": "integer" },
+        "failed": { "type": "integer" },
+        "blocked": { "type": "integer" },
+        "risk_high": { "type": "integer" }
+      }
+    },
+    "delta": {
+      "type": "object",
+      "required": ["passed", "needs_review", "failed", "blocked", "risk_high"],
+      "properties": {
+        "passed": { "type": "integer" },
+        "needs_review": { "type": "integer" },
+        "failed": { "type": "integer" },
+        "blocked": { "type": "integer" },
+        "risk_high": { "type": "integer" }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "regression_id": "regression-2026-05-28",
+  "generated_at": "2026-05-28T16:35:50.505Z",
+  "status": "pass",
+  "baseline_ref": "baselines/eval_baseline.json",
+  "current_eval_id": "eval-2026-05-28",
+  "baseline": {
+    "passed": 3,
+    "needs_review": 3,
+    "failed": 0,
+    "blocked": 2,
+    "risk_high": 1
+  },
+  "current": {
+    "passed": 3,
+    "needs_review": 3,
+    "failed": 0,
+    "blocked": 2,
+    "risk_high": 1
+  },
+  "delta": {
+    "passed": 0,
+    "needs_review": 0,
+    "failed": 0,
+    "blocked": 0,
+    "risk_high": 0
+  },
+  "findings": [
+    "current evaluation matches or improves on baseline"
+  ]
+}

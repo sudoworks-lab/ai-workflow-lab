@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "required": [
+    "review_id",
+    "review_status",
+    "summary",
+    "evidence",
+    "issues",
+    "safety_findings",
+    "missing_verification",
+    "required_changes",
+    "next_action"
+  ],
+  "properties": {
+    "review_id": { "type": "string" },
+    "review_status": { "type": "string" },
+    "summary": { "type": "string" },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "issues": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "safety_findings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "missing_verification": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "required_changes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_action": { "type": "string" }
+  }
+}

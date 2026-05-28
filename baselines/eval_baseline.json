@@ -1,0 +1,49 @@
+{
+  "baseline_id": "baseline-eval-2026-05-28",
+  "generated_at": "2026-05-28T10:20:00Z",
+  "counts": {
+    "passed": 3,
+    "needs_review": 3,
+    "failed": 0,
+    "blocked": 2,
+    "risk_high": 1
+  },
+  "case_results": [
+    {
+      "case_id": "golden-docs-maintenance",
+      "status": "pass",
+      "risk_level": "low",
+      "risk_score": 0
+    },
+    {
+      "case_id": "golden-log-auto-collect",
+      "status": "pass",
+      "risk_level": "low",
+      "risk_score": 2
+    },
+    {
+      "case_id": "negative-overbroad-codex-access",
+      "status": "needs_review",
+      "risk_level": "blocked",
+      "risk_score": 12
+    },
+    {
+      "case_id": "negative-sensitive-log-collection",
+      "status": "needs_review",
+      "risk_level": "high",
+      "risk_score": 6
+    },
+    {
+      "case_id": "negative-unreviewed-docs-publish",
+      "status": "needs_review",
+      "risk_level": "blocked",
+      "risk_score": 18
+    },
+    {
+      "case_id": "golden-roblox-game-dev",
+      "status": "pass",
+      "risk_level": "low",
+      "risk_score": 0
+    }
+  ]
+}

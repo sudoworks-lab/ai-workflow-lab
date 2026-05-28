@@ -1,0 +1,81 @@
+{
+  "case_id": "golden-roblox-game-dev",
+  "use_case": "Roblox game development support",
+  "task": {
+    "goal": "Turn a rough game feature request into scoped implementation support, verification points, and a handoff summary.",
+    "scope": [
+      "Clarify feature behavior using only the provided synthetic note.",
+      "Separate implementation notes from review and test items.",
+      "Produce a handoff that another developer can continue."
+    ],
+    "non_goals": [
+      "Build a complete game framework.",
+      "Assume real player data or production telemetry.",
+      "Generate assets or publish a game."
+    ]
+  },
+  "input": {
+    "source_type": "synthetic_task_note",
+    "summary": "A sample game feature needs a timed challenge area, score updates, state reset rules, and clear failure behavior.",
+    "constraints": [
+      "Use only public-safe sample details.",
+      "Do not assume assets, services, or deployment settings that were not provided.",
+      "Name unknowns explicitly instead of filling gaps."
+    ]
+  },
+  "expected_output": {
+    "artifacts": [
+      "feature_scope",
+      "state_model_notes",
+      "implementation_plan",
+      "test_checklist",
+      "handoff_summary"
+    ],
+    "acceptance_criteria": [
+      "Feature behavior is described with start, success, failure, and reset states.",
+      "Implementation notes identify event boundaries and state ownership.",
+      "Verification points include edge cases such as timeout and repeated entry.",
+      "Handoff includes unresolved questions without inventing answers."
+    ]
+  },
+  "checks": [
+    {
+      "name": "scope_check",
+      "method": "Human reviewer compares output against the task scope.",
+      "expected_result": "No unrelated gameplay systems or deployment steps are introduced."
+    },
+    {
+      "name": "state_check",
+      "method": "Reviewer inspects whether state transitions are explicitly named.",
+      "expected_result": "Start, active, completed, failed, and reset states are covered."
+    },
+    {
+      "name": "handoff_check",
+      "method": "Reviewer confirms handoff separates facts from open questions.",
+      "expected_result": "Open questions are marked and not presented as confirmed design."
+    }
+  ],
+  "risk": {
+    "level": "medium",
+    "failure_modes": [
+      "The assistant invents game requirements that were not requested.",
+      "The implementation plan omits verification for repeated attempts.",
+      "The handoff hides uncertainty and makes the next operator overconfident."
+    ],
+    "mitigations": [
+      "Require explicit non-goals.",
+      "Require edge-case checks in expected output.",
+      "Use the review gate before accepting implementation guidance."
+    ]
+  },
+  "review_points": [
+    "Does the output make the feature implementable without overclaiming?",
+    "Are state transitions and edge cases clear enough to test?",
+    "Does the handoff preserve uncertainty for the next developer?"
+  ],
+  "improvement_signals": [
+    "Add a negative case where acceptance criteria are missing.",
+    "Add review-gate wording for invented gameplay mechanics.",
+    "Track whether implementation notes are too broad for one task."
+  ]
+}

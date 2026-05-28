@@ -1,0 +1,60 @@
+{
+  "policyName": "public-ai-workflow-risk-policy",
+  "blockedThreshold": 9,
+  "highThreshold": 6,
+  "mediumThreshold": 3,
+  "categories": [
+    {
+      "name": "dangerous_terms",
+      "weight": 3,
+      "terms": [
+        "token",
+        "secret",
+        "password",
+        "api_key",
+        "credential",
+        "client_secret"
+      ]
+    },
+    {
+      "name": "overbroad_access",
+      "weight": 3,
+      "terms": [
+        "all nearby workspaces",
+        "unrelated repositories",
+        "approved source boundary",
+        "bounded read list"
+      ]
+    },
+    {
+      "name": "real_log_likeness",
+      "weight": 2,
+      "terms": [
+        "raw records",
+        "real log",
+        "preserve all fields",
+        "recent raw error records"
+      ]
+    },
+    {
+      "name": "review_gate_bypass",
+      "weight": 3,
+      "terms": [
+        "skip review",
+        "without review",
+        "bypass",
+        "author confidence"
+      ]
+    },
+    {
+      "name": "public_release_risk",
+      "weight": 2,
+      "terms": [
+        "publish directly",
+        "immediate public-facing",
+        "publication",
+        "ready"
+      ]
+    }
+  ]
+}

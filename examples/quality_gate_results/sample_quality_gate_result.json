@@ -1,0 +1,43 @@
+{
+  "gate_id": "sample-quality-gate-2026-05-28",
+  "generated_at": "2026-05-28T10:30:00Z",
+  "status": "needs_review",
+  "checks": [
+    {
+      "name": "validate",
+      "status": "pass",
+      "detail": "0 validation failure(s)"
+    },
+    {
+      "name": "scan",
+      "status": "pass",
+      "detail": "0 disallowed public-safety hit(s)"
+    },
+    {
+      "name": "eval",
+      "status": "needs_review",
+      "detail": "3 pass, 3 needs_review, 0 fail"
+    },
+    {
+      "name": "regression",
+      "status": "pass",
+      "detail": "current evaluation matches or improves on baseline"
+    },
+    {
+      "name": "risk",
+      "status": "needs_review",
+      "detail": "2 blocked-risk case(s), 1 high-risk case(s)"
+    },
+    {
+      "name": "review_result",
+      "status": "needs_review",
+      "detail": "1 review result(s), 1 not pass"
+    }
+  ],
+  "reasons": [
+    "evaluation includes cases that require review",
+    "risk scoring requires human review",
+    "review result is not pass"
+  ],
+  "next_action": "Complete human review for needs-review checks before publication."
+}
