@@ -1,6 +1,6 @@
 # Handoff Prompt
 
-Use this template when another operator or agent should continue the workflow. A handoff should preserve facts, not recreate the full conversation.
+別のoperatorやagentがworkflowを継続する場合に使うtemplateです。handoffは会話全体を再現するものではなく、事実を保持するためのものです。
 
 ```text
 HANDOFF
@@ -28,18 +28,18 @@ Do not:
 
 ## Handoff Rules
 
-- Base the handoff on artifacts, verification output, and run receipts.
-- Mark uncertain items as unconfirmed.
-- Keep the next action small enough to execute and verify.
-- Do not include real logs, restricted values, personal information, or local-only paths.
-- Preserve safety concerns instead of cleaning them out of the narrative.
+- artifacts、verification output、run receiptに基づいてhandoffを書く。
+- 不確かな項目はunconfirmedとして明示する。
+- next actionは小さく、実行と検証が可能な単位にする。
+- real logs、restricted values、personal information、local-only pathsを含めない。
+- safety concernを文章から消さず、引き継ぎに残す。
 
 ## Minimum Useful Handoff
 
-A useful handoff should answer:
+有用なhandoffは次に答えます。
 
-- What was attempted?
-- What changed?
-- What evidence exists?
-- What still needs review?
-- What should not be done next?
+- 何を試したか。
+- 何が変わったか。
+- どのevidenceがあるか。
+- 何がまだreviewを必要としているか。
+- 次に何をしてはいけないか。

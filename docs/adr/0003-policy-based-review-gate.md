@@ -2,16 +2,16 @@
 
 ## Background
 
-Public-safety and quality review need explicit criteria rather than hidden reviewer memory.
+public-safetyとquality reviewには、reviewerの記憶に依存しない明示的な基準が必要です。
 
 ## Decision
 
-Use documented prompts, schemas, risk policy, and quality gate output to make review decisions traceable.
+documented prompts、schemas、risk policy、quality gate outputを使い、review decisionをtraceableにします。
 
 ## Reason
 
-Policy-based review makes failures actionable and lets another operator understand why a result passed, needs review, or is blocked.
+policy-based reviewにより、failureがactionableになり、別のoperatorでもresultがpass、needs review、blockedになった理由を理解できます。
 
 ## Impact
 
-The quality gate is conservative. `needs_review` is an expected state for negative or high-risk cases and still requires human judgment.
+quality gateは保守的です。negative caseやhigh-risk caseでは `needs_review` が期待される状態であり、引き続き人間の判断が必要です。

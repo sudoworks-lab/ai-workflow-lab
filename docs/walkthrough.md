@@ -1,29 +1,29 @@
 # Walkthrough
 
-This walkthrough is for someone reviewing the repository before a deeper public review or interview discussion.
+このwalkthroughは、公開前レビューや面接での説明前に、このrepoの要点を短時間で把握するためのものです。
 
-## 3 Minutes: Read The Signal
+## 3分: シグナルを読む
 
-Start with the parts that explain what the repo is:
+まず、このrepoが何を示しているかを説明する部分だけを見ます。
 
-1. Read the first screen of `README.md`.
-2. Look at `docs/images/architecture-overview.svg`.
-3. Look at `docs/images/execution-flow.svg`.
-4. Open `reports/latest.md` to see the generated review report.
-5. Open `artifacts/latest/` to see eval, regression, quality gate, and summary evidence.
+1. `README.md` の最初の画面を読む。
+2. `docs/images/architecture-overview.svg` を見る。
+3. `docs/images/execution-flow.svg` を見る。
+4. `reports/latest.md` を開き、生成されたreview reportを見る。
+5. `artifacts/latest/` を開き、eval、regression、quality gate、summaryの証跡を見る。
 
-The signal to look for is a small TypeScript workflow platform: local checks, eval, risk scoring, baseline comparison, gates, artifacts, reports, and human review.
+見るべきシグナルは、小さなTypeScript workflow platformです。local check、eval、risk scoring、baseline comparison、gate、artifact、report、human reviewが一つの流れになっています。
 
-## 5 Minutes: Run It
+## 5分: 実行する
 
-Install dependencies and run the end-to-end local path:
+依存関係を入れ、end-to-endのlocal pathを実行します。
 
 ```bash
 npm install
 npm run cli -- run-all
 ```
 
-Run focused checks when reviewing one layer:
+特定の層だけを確認する場合は、focused checkを実行します。
 
 ```bash
 npm run validate
@@ -36,33 +36,31 @@ npm run test
 npm run smoke
 ```
 
-Expected result:
+期待される結果は次の通りです。
 
-- JSON examples and config pass the simplified schema checks.
-- Safety scan has no disallowed hits.
-- Evaluation passes positive cases and routes negative cases to review.
-- Regression matches the accepted baseline.
-- Quality gate returns a reviewable publication-readiness status.
-- Report and artifact files are generated locally.
+- JSON examples と config が簡易schema checkを通る。
+- safety scan に disallowed hit がない。
+- positive case はpassし、negative case はreviewへ回る。
+- regression が受け入れ済みbaselineと一致する。
+- quality gate がレビュー可能なpublication-readiness statusを返す。
+- report と artifact files がローカルで生成される。
 
-## 10 Minutes: Inspect The Design
+## 10分: 設計を見る
 
-Use this path to understand the system shape:
+system shapeを理解するには、次の順に見ます。
 
-1. `docs/architecture.md` for components and gate relationships.
-2. `docs/evaluation.md` for eval, risk score, regression, and quality gate behavior.
-3. `docs/operations.md` for adding cases, receipts, review results, and baselines.
-4. `schemas/*.json` for the record model.
-5. `src/cli.ts`, `src/eval_runner.ts`, `src/risk_score.ts`, `src/regression_check.ts`, and `src/quality_gate.ts` for the TypeScript core.
-6. `tests/*.test.ts` for local behavior coverage.
-7. `docs/adr/` for the design decisions.
-8. `.github/workflows/ci.yml` for the CI candidate.
+1. `docs/architecture.md`: component と gate の関係。
+2. `docs/evaluation.md`: eval、risk score、regression、quality gate の挙動。
+3. `docs/operations.md`: case、receipt、review result、baseline の追加・運用方法。
+4. `schemas/*.json`: record model。
+5. `src/cli.ts`, `src/eval_runner.ts`, `src/risk_score.ts`, `src/regression_check.ts`, `src/quality_gate.ts`: TypeScript core。
+6. `tests/*.test.ts`: local behavior coverage。
+7. `docs/adr/`: 設計判断。
+8. `.github/workflows/ci.yml`: CI候補。
 
-The design intentionally keeps the repo local-first and public-safe. It demonstrates the workflow mechanics rather than depending on a model vendor.
+設計はlocal-firstかつpublic-safeにしています。特定のmodel vendorに依存せず、AI作業を制御・評価・証跡化するworkflow mechanicsを示すためです。
 
-## Before An Interview
-
-Review these files in order:
+## 面接前に見る順番
 
 1. `README.md`
 2. `reports/latest.md`
@@ -73,4 +71,4 @@ Review these files in order:
 7. `TODO_public_review.md`
 8. `LICENSE`
 
-Be ready to explain why the quality gate can be `needs_review` while the command succeeds: negative cases and public-review items are expected to require human judgment before release.
+quality gate が `needs_review` でもコマンドが成功する理由を説明できるようにしておきます。negative caseや公開前レビュー項目は、人間の判断が必要な状態として扱うためです。

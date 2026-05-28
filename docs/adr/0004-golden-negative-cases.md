@@ -2,16 +2,16 @@
 
 ## Background
 
-Positive examples alone do not show how the workflow handles unsafe or incomplete requests.
+positive exampleだけでは、workflowがunsafeまたはincompleteなrequestをどう扱うかを示せません。
 
 ## Decision
 
-Keep both golden cases and negative cases under `examples/golden_cases/`.
+`examples/golden_cases/` 配下にgolden caseとnegative caseの両方を置きます。
 
 ## Reason
 
-The same evaluator can verify useful paths and expected rejection or revision paths.
+同じevaluatorで、有用なpathと期待される拒否・差し戻しpathの両方を検証できます。
 
 ## Impact
 
-Negative cases are expected to produce review-required outcomes. They are synthetic and must not include real operational data.
+negative caseはreview-required outcomeを返すことが期待されます。これらはsyntheticであり、real operational dataを含めてはいけません。

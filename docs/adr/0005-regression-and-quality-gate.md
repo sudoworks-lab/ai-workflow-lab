@@ -2,16 +2,16 @@
 
 ## Background
 
-Evaluation output is useful only if changes can be compared against a baseline and summarized as a release decision.
+evaluation outputは、baselineと比較でき、release decisionとして要約できる場合に価値があります。
 
 ## Decision
 
-Add regression checks against `baselines/eval_baseline.json` and a quality gate that combines validation, scan, eval, regression, risk, and review results.
+`baselines/eval_baseline.json` に対するregression checkと、validation、scan、eval、regression、risk、review resultを統合するquality gateを追加します。
 
 ## Reason
 
-Baseline comparison catches worsening behavior, while the quality gate gives one reviewable publication status.
+baseline comparisonはworsening behaviorを検出し、quality gateはreview可能なpublication statusを一つにまとめます。
 
 ## Impact
 
-The gate can return `needs_review` even when commands pass. A `blocked` result should stop publication work until fixed.
+commandがpassしても、gateは `needs_review` を返すことがあります。`blocked` resultは、修正されるまでpublication workを止めるべき状態です。

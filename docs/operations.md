@@ -1,6 +1,6 @@
 # Operations
 
-Operate this repository from its root directory.
+このrepoはroot directoryから操作します。
 
 ## Standard Pre-Review Check
 
@@ -9,70 +9,70 @@ npm install
 npm run smoke
 ```
 
-The smoke test performs:
+smoke testは次を実行します。
 
-- Required file existence checks.
-- JSON parsing checks.
-- Simplified schema validation.
-- Public-safety term scan.
-- Evaluation runner check.
-- Regression baseline check.
-- Quality gate check.
-- Markdown report generation.
-- Node test suite execution.
-- Workflow summary generation.
+- 必須ファイルの存在確認。
+- JSON parse check。
+- simplified schema validation。
+- public-safety term scan。
+- evaluation runner check。
+- regression baseline check。
+- quality gate check。
+- Markdown report generation。
+- Node test suite execution。
+- workflow summary generation。
 
 ## Individual Checks
 
-Run JSON validation only:
+JSON validationだけを実行します。
 
 ```bash
 npm run validate
 ```
 
-Run public-safety scan only:
+public-safety scanだけを実行します。
 
 ```bash
 npm run scan
 ```
 
-Generate the portfolio workflow summary:
+portfolio workflow summaryを生成します。
 
 ```bash
 npm run summary
 ```
 
-Run evaluation:
+evaluationを実行します。
 
 ```bash
 npm run eval
 ```
 
-Run regression against the baseline:
+baselineに対するregressionを実行します。
 
 ```bash
 npm run regression
 ```
 
-Run the publication quality gate:
+publication quality gateを実行します。
 
 ```bash
 npm run gate
 ```
 
-Generate the Markdown report:
+Markdown reportを生成します。
 
 ```bash
 npm run report
 ```
 
-Run tests:
+testを実行します。
 
 ```bash
 npm run test
 ```
 
-Run the same checks through the CLI entrypoint:
+同じcheckをCLI entrypoint経由で実行します。
 
 ```bash
 npm run cli -- validate
@@ -86,87 +86,87 @@ npm run cli -- run-all
 npm run cli -- smoke
 ```
 
-## Adding A Golden Case
+## Golden Caseを追加する
 
-1. Create a JSON file under `examples/golden_cases/`.
-2. Follow `schemas/golden_case.schema.json`.
-3. Include task, input, expected output, checks, risk, and review points.
-4. Run `npm run validate`; files under `examples/golden_cases/` are discovered automatically.
-5. Run `npm run smoke`.
-6. Record unclear public-review decisions in `TODO_public_review.md`.
+1. `examples/golden_cases/` にJSON fileを作る。
+2. `schemas/golden_case.schema.json` に従う。
+3. task、input、expected output、checks、risk、review pointsを含める。
+4. `npm run validate` を実行する。`examples/golden_cases/` 配下のfileは自動検出される。
+5. `npm run smoke` を実行する。
+6. 公開前レビューで判断が必要な点は `TODO_public_review.md` に残す。
 
-## Adding A Run Receipt
+## Run Receiptを追加する
 
-1. Create a JSON file under `examples/run_receipts/`.
-2. Follow `schemas/run_receipt.schema.json`.
-3. Keep all values synthetic for public samples.
-4. Include commands that were actually run.
-5. Include skipped checks and residual risks.
-6. Run `npm run smoke`.
+1. `examples/run_receipts/` にJSON fileを作る。
+2. `schemas/run_receipt.schema.json` に従う。
+3. public sampleではすべての値をsyntheticにする。
+4. 実際に実行したcommandを含める。
+5. skipped checks と residual risks を含める。
+6. `npm run smoke` を実行する。
 
-## Adding A Review Result
+## Review Resultを追加する
 
-1. Create a JSON file under `examples/review_results/`.
-2. Follow `schemas/review_result.schema.json`.
-3. Record status, evidence, findings, required changes, and next action.
-4. Keep the result tied to synthetic examples or public-safe artifacts.
-5. Run `npm run validate` and `npm run smoke`.
+1. `examples/review_results/` にJSON fileを作る。
+2. `schemas/review_result.schema.json` に従う。
+3. status、evidence、findings、required changes、next actionを記録する。
+4. synthetic examplesまたはpublic-safe artifactsに紐づける。
+5. `npm run validate` と `npm run smoke` を実行する。
 
-## Updating Risk Policy
+## Risk Policyを更新する
 
-1. Edit `config/risk_policy.json`.
-2. Keep terms generic and policy-oriented.
-3. Follow `schemas/risk_policy.schema.json`.
-4. Run `npm run eval` to inspect scoring impact.
-5. Run `npm run test` and `npm run smoke`.
+1. `config/risk_policy.json` を編集する。
+2. termはgenericかつpolicy-orientedに保つ。
+3. `schemas/risk_policy.schema.json` に従う。
+4. `npm run eval` を実行し、scoring impactを確認する。
+5. `npm run test` と `npm run smoke` を実行する。
 
 ## Report Operation
 
-`npm run report` writes `reports/latest.md`. Treat the report as generated review evidence. It summarizes local checks and does not replace human public review.
+`npm run report` は `reports/latest.md` を書き込みます。このreportはgenerated review evidenceとして扱います。人間によるpublic reviewの代替ではありません。
 
 ## Artifact Operation
 
-The eval, regression, gate, and summary commands write latest execution evidence under `artifacts/latest/`:
+eval、regression、gate、summary commandは、latest execution evidenceを `artifacts/latest/` に書き込みます。
 
 - `eval_result.json`
 - `regression_result.json`
 - `quality_gate_result.json`
 - `summary.md`
 
-These files are generated evidence. Review them before publication.
+これらは生成された証跡です。公開前に内容を確認します。
 
-## Updating The Baseline
+## Baselineを更新する
 
-Update `baselines/eval_baseline.json` only after a human accepts the new eval behavior. Run `npm run regression` before and after the update to confirm the intended delta.
+`baselines/eval_baseline.json` は、人間が新しいeval behaviorを受け入れた後にだけ更新します。更新前後に `npm run regression` を実行し、意図したdeltaであることを確認します。
 
 ## ADRs
 
-Design decisions live under `docs/adr/`. Add a short ADR when changing implementation language, external dependency boundaries, review policy, case strategy, or gate behavior.
+設計判断は `docs/adr/` に置きます。implementation language、external dependency boundary、review policy、case strategy、gate behaviorを変える場合は短いADRを追加します。
 
-## Using Templates
+## Templates
 
-Use files under `templates/` as starting points only. Replace placeholder text with synthetic, public-safe values before moving a file into `examples/`.
+`templates/` 配下のfileはstarting pointとしてだけ使います。placeholder textをsyntheticかつpublic-safeな値に置き換えてから `examples/` へ移動します。
 
 ## Failure Handling
 
-If validation fails:
+validationがfailした場合は次を行います。
 
-- Fix missing fields or wrong types first.
-- Decide whether the schema or sample is incorrect.
-- Keep failures visible until a real correction is made.
-- Do not downgrade required fields only to pass.
+- まずmissing fieldやwrong typeを直す。
+- schemaが間違っているのか、sampleが間違っているのかを判断する。
+- 実際の修正までfailureを見える状態にする。
+- passさせるためだけにrequired fieldを弱めない。
 
-If public-safety scan reports hits:
+public-safety scanがhitを出した場合は次を行います。
 
-- Check whether each hit is policy/checklist text or a real value.
-- Keep policy/checklist hits only when they are necessary.
-- Remove real values and replace them with generic placeholders.
-- Add unresolved decisions to `TODO_public_review.md`.
+- 各hitがpolicy/checklist textなのか、実値なのかを確認する。
+- policy/checklist hitは必要な場合だけ残す。
+- 実値は削除し、generic placeholderに置き換える。
+- 未解決の判断は `TODO_public_review.md` に追加する。
 
 ## Operating Boundary
 
-This repository is a public sample. It should not be treated as a production automation system until storage, access control, audit retention, and execution isolation are designed separately.
+このrepoはpublic sampleです。storage、access control、audit retention、execution isolationを別途設計するまでは、production automation systemとして扱わないでください。
 
 ## Implementation Boundary
 
-Repository checks and summaries are implemented in TypeScript under `src/` and exposed through npm scripts. Shell files are retained only as thin compatibility launchers that call `npm run`.
+repo checkとsummaryは `src/` 配下のTypeScriptで実装し、npm scripts経由で公開します。shell fileは `npm run` を呼ぶ薄いcompatibility launcherとしてだけ残します。

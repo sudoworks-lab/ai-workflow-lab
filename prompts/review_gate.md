@@ -1,6 +1,6 @@
 # Review Gate Prompt
 
-Use this prompt after artifacts have been produced. The reviewer should judge task completion, evidence quality, safety posture, and follow-up clarity.
+artifactが生成された後に使うpromptです。reviewerはtask completion、evidence quality、safety posture、follow-up clarityを判断します。
 
 ```text
 You are reviewing an AI-assisted engineering workflow result.
@@ -36,13 +36,13 @@ Return:
 
 ## Status Policy
 
-- `pass`: The result is complete for scope, verified, and safe enough for the intended boundary.
-- `revise`: The direction is useful, but evidence, completeness, or clarity is insufficient.
-- `reject`: The result is unsafe, out of scope, not verifiable, or misleading.
+- `pass`: scopeに対してcompleteで、verifiedされ、intended boundaryに対して十分安全。
+- `revise`: 方向性は有用だが、evidence、completeness、clarityが不足している。
+- `reject`: unsafe、out of scope、not verifiable、またはmisleading。
 
 ## Reviewer Notes
 
-- Do not accept unsupported claims.
-- Do not treat valid JSON as content approval.
-- Do not ignore safety-scan hits just because they appear in documentation.
-- Prefer a small required change over a vague recommendation.
+- unsupported claimを受け入れない。
+- valid JSONをcontent approvalとして扱わない。
+- documentation内にあるという理由だけでsafety-scan hitを無視しない。
+- vague recommendationより、小さく具体的なrequired changeを優先する。

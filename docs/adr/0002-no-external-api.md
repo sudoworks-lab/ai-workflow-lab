@@ -2,16 +2,16 @@
 
 ## Background
 
-This repository is a public-safe workflow sample and must not depend on hidden services or operational data.
+このrepoはpublic-safeなworkflow sampleであり、hidden serviceやoperational dataに依存してはいけません。
 
 ## Decision
 
-All checks, evaluation, risk scoring, and reports run locally without external API calls.
+すべてのcheck、evaluation、risk scoring、reportは外部API callなしでlocalに実行します。
 
 ## Reason
 
-Local-only execution keeps the sample reproducible, inspectable, and safe to run before publication.
+local-only executionにより、公開前に再現可能で、inspectableで、安全に実行できるsampleになります。
 
 ## Impact
 
-The repository demonstrates workflow mechanics, not model quality. Any future external integration must be added outside the default public sample path.
+このrepoが示すのはmodel qualityではなくworkflow mechanicsです。将来のexternal integrationは、default public sample pathの外側に追加する必要があります。

@@ -1,6 +1,6 @@
 # Codex Task Prompt Template
 
-Use this template to turn engineering work into a bounded, verifiable task. The goal is to make execution repeatable enough that another reviewer can inspect scope, evidence, and risk.
+engineering workをboundedで検証可能なtaskに変換するためのtemplateです。目的は、別のreviewerがscope、evidence、riskを確認できる程度にexecutionを再現可能にすることです。
 
 ```text
 STATUS
@@ -51,15 +51,15 @@ REPORT
 
 ## Quality Bar
 
-- The task must be narrow enough to verify.
-- The read scope should be explicit.
-- Verification should be mechanical when possible.
-- The executor must report skipped checks instead of implying success.
-- Public-facing work must keep safety constraints visible.
+- taskは検証できる狭さにする。
+- read scopeを明示する。
+- verificationは可能な限りmechanicalにする。
+- executorはskipped checkを隠さず報告する。
+- public-facing workではsafety constraintsを見える状態に保つ。
 
 ## Anti-Patterns
 
-- Asking for broad repo exploration without a reason.
-- Accepting generated text without a review gate.
-- Treating a passing script as proof that the content is good.
-- Hiding uncertainty to make the report look cleaner.
+- 理由なく広範なrepo explorationを依頼する。
+- review gateなしでgenerated textを受け入れる。
+- scriptのpassをcontent qualityの証明として扱う。
+- reportをきれいに見せるためにuncertaintyを隠す。

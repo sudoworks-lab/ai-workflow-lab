@@ -1,87 +1,87 @@
 # Workflow
 
-The workflow is a short improvement loop around AI-assisted execution.
+このworkflowは、AI-assisted executionを短い改善ループとして扱います。
 
-## 1. Define The Task
+## 1. Taskを定義する
 
-Use `prompts/codex_task.md` to state:
+`prompts/codex_task.md` を使って次を明示します。
 
-- Objective.
-- Scope.
-- Allowed reading.
-- Required implementation.
-- Verification commands.
-- Safety constraints.
-- Reporting format.
+- Objective。
+- Scope。
+- Allowed reading。
+- Required implementation。
+- Verification commands。
+- Safety constraints。
+- Reporting format。
 
-Good tasks are bounded enough that a reviewer can decide whether the work passed.
+良いtaskは、reviewerがpass/failを判断できる程度にboundedです。
 
-## 2. Execute With Constraints
+## 2. 制約内で実行する
 
-The executor performs only the requested work. If more context is needed, the executor records why instead of silently expanding scope.
+executorは要求された作業だけを行います。追加contextが必要な場合は、scopeを黙って広げず、その理由を記録します。
 
-Execution can be manual, AI-assisted, or script-driven. The workflow cares about traceability, not which tool produced the first draft.
+executionはmanual、AI-assisted、script-drivenのいずれでも構いません。このworkflowが重視するのは、最初のdraftをどのtoolが作ったかではなくtraceabilityです。
 
-## 3. Capture A Run Receipt
+## 3. Run Receiptを残す
 
-The run receipt records:
+run receiptは次を記録します。
 
-- Task and input reference.
-- Expected output.
-- Artifacts changed.
-- Checks performed.
-- Risks found.
-- Review points.
-- Follow-up actions.
+- task と input reference。
+- expected output。
+- artifacts changed。
+- checks performed。
+- risks found。
+- review points。
+- follow-up actions。
 
-This turns a chat result into evidence that can be reviewed later.
+これにより、chat resultを後からreviewできるevidenceへ変換します。
 
-## 4. Validate Structured Records
+## 4. Structured Recordを検証する
 
-Run:
+実行します。
 
 ```bash
 npm run validate
 ```
 
-Validation catches missing fields and wrong basic types in golden cases and run receipts. It is a mechanical gate, not a quality judgment.
+validationはgolden caseやrun receiptのmissing field、wrong basic typeを検出します。これはmechanical gateであり、品質判断ではありません。
 
-## 5. Review Output Quality
+## 5. Output Qualityをレビューする
 
-Use `prompts/review_gate.md` to decide:
+`prompts/review_gate.md` を使って判断します。
 
-- `pass`: acceptable for the stated scope.
-- `revise`: useful but incomplete.
-- `reject`: unsafe, unverifiable, or out of scope.
+- `pass`: stated scopeに対して許容できる。
+- `revise`: 有用だが不完全。
+- `reject`: unsafe、unverifiable、またはout of scope。
 
-Review should cite evidence from artifacts, checks, and the receipt.
+reviewではartifact、check、receiptからevidenceを引用します。
 
-When review output should be recorded, write a file under `examples/review_results/` that follows `schemas/review_result.schema.json`.
+review outputを記録する場合は、`schemas/review_result.schema.json` に従うfileを `examples/review_results/` に書きます。
 
-## 6. Run Safety Review
+## 6. Safety Reviewを実行する
 
-Run:
+実行します。
 
 ```bash
 npm run scan
 ```
 
-The safety gate searches for risky terms. Checklist and policy hits are allowed only after manual context review. Real values should be removed.
+safety gateはrisky termを検索します。checklistやpolicyのhitは、manual context reviewの後にだけ許可します。実値は削除します。
 
-## 7. Feed Back Improvements
+## 7. 改善を戻す
 
-If the work failed, update one or more of:
+作業がfailした場合は、次のいずれかを更新します。
 
-- Task prompt.
-- Review gate prompt.
-- Handoff prompt.
-- Schema.
-- Golden case.
-- Operations doc.
-- TODO public review list.
+- Task prompt。
+- Review gate prompt。
+- Handoff prompt。
+- Schema。
+- Golden case。
+- Operations doc。
+- TODO public review list。
 
-The loop is useful only if failures change the system, not just the current output.
+このloopは、failureが現在のoutputだけでなくsystem側の改善につながる場合に価値があります。
 
 ## Templates
 
-Reusable placeholders live under `templates/`. They are intentionally generic and should be copied into `examples/` only after replacing placeholder text with synthetic, public-safe values.
+再利用可能なplaceholderは `templates/` 配下にあります。意図的にgenericにしているため、`examples/` にコピーする前にsyntheticかつpublic-safeな値へ置き換えます。

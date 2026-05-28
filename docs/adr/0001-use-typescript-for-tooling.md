@@ -2,16 +2,16 @@
 
 ## Background
 
-The repository needs local validation, evaluation, scoring, reporting, and CLI behavior that is more complex than thin shell glue.
+このrepoには、薄いshell glueを超えるlocal validation、evaluation、scoring、reporting、CLI behaviorが必要です。
 
 ## Decision
 
-Implement tool bodies in TypeScript and expose them through npm scripts.
+tool bodyはTypeScriptで実装し、npm scripts経由で公開します。
 
 ## Reason
 
-TypeScript gives typed structure for JSON records, predictable local execution, and simple reuse across CLI, tests, and reports.
+TypeScriptにより、JSON recordに型付きの構造を与え、予測可能なlocal executionを保ち、CLI・test・reportで同じ実装を再利用できます。
 
 ## Impact
 
-Shell remains only as compatibility launchers. New workflow logic should be added under `src/` and covered by `tests/`.
+shellはcompatibility launcherとしてだけ残します。新しいworkflow logicは `src/` に追加し、`tests/` でcoverします。

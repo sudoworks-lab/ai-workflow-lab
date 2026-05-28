@@ -1,132 +1,132 @@
 # Evaluation
 
-Evaluation in this repository is workflow evaluation, not model benchmarking. The question is whether the process produces reviewable, safe, and verifiable work with enough evidence to decide whether to pass, revise, or reject.
+このrepoのevaluationはmodel benchmarkではなく、workflow evaluationです。見るべき問いは、プロセスがレビュー可能で、安全で、検証可能な作業を十分な証跡付きで生成し、pass・revise・rejectを判断できるかです。
 
 ## Evaluation Assets
 
-The current golden cases cover three operating modes:
+現在のgolden caseは3つのoperating modeを扱います。
 
 - Development support: `examples/golden_cases/roblox_game_dev.json`
 - Log collection planning: `examples/golden_cases/log_auto_collect.json`
 - Documentation maintenance: `examples/golden_cases/docs_maintenance.json`
 
-The negative cases cover expected rejection or revision paths:
+negative caseは、期待される拒否または差し戻し経路を扱います。
 
 - Overbroad agent access: `examples/golden_cases/negative_overbroad_codex_access.json`
 - Unsafe log collection: `examples/golden_cases/negative_sensitive_log_collection.json`
 - Unreviewed docs publication: `examples/golden_cases/negative_unreviewed_docs_publish.json`
 
-Each case includes:
+各caseは次を含みます。
 
-- `task`: what the workflow is supposed to do.
-- `input`: synthetic task input and source boundaries.
-- `expected_output`: required artifacts and acceptance criteria.
-- `checks`: mechanical and human checks.
-- `risk`: likely failure modes and safety controls.
-- `review_points`: what a reviewer should inspect.
+- `task`: workflowが行うべきこと。
+- `input`: 合成されたtask inputとsource boundary。
+- `expected_output`: 必要なartifactとacceptance criteria。
+- `checks`: mechanical check と human check。
+- `risk`: 想定されるfailure modeとsafety control。
+- `review_points`: reviewerが確認すべき点。
 
-## What Good Looks Like
+## 良い結果の条件
 
-A good workflow result should:
+良いworkflow resultは次を満たします。
 
-- Stay within the stated scope.
-- Produce the expected artifacts.
-- Record evidence in a run receipt.
-- Pass schema validation.
-- Identify unverified assumptions.
-- Avoid unsafe public details.
-- Produce actionable follow-up when incomplete.
+- 明示されたscope内に留まる。
+- 期待されたartifactを生成する。
+- run receiptに証跡を記録する。
+- schema validationを通る。
+- 未検証のassumptionを明示する。
+- 公開に危険な詳細を避ける。
+- 未完了の場合にactionable follow-upを出す。
 
 ## Mechanical Validation
 
-`src/validate_json.ts` supports a small subset of JSON Schema:
+`src/validate_json.ts` は小さなJSON Schema subsetを扱います。
 
 - `type`
 - `required`
 - `properties`
 - `items`
 
-The script validates the sample run receipt and all golden cases. It also prints a summary that separates checked files from failures.
+scriptはsample run receiptとすべてのgolden caseを検証します。また、checked filesとfailuresを分けたsummaryを出力します。
 
-Review results are validated with `schemas/review_result.schema.json` so human review decisions can be checked for minimum structure.
+review resultは `schemas/review_result.schema.json` で検証されます。人間のreview decisionにも最低限の構造を持たせるためです。
 
 ## Eval Runner
 
-Run local evaluation:
+local evaluationを実行します。
 
 ```bash
 npm run eval
 ```
 
-`src/eval_runner.ts` reads `examples/golden_cases/*.json`, separates positive and negative cases, checks whether each case has workflow checks, risk controls, review points, and acceptance criteria, and returns:
+`src/eval_runner.ts` は `examples/golden_cases/*.json` を読み、positive caseとnegative caseを分け、各caseがworkflow checks、risk controls、review points、acceptance criteriaを持つか確認し、次を返します。
 
-- `pass`: structurally complete case with low or medium risk.
-- `needs_review`: negative case or high-risk case that should be reviewed by a human.
-- `fail`: case missing required evaluation substance.
+- `pass`: 構造的に十分で、riskがlowまたはmediumのcase。
+- `needs_review`: negative caseまたはhigh-risk caseで、人間のreviewが必要なcase。
+- `fail`: evaluationに必要な中身が欠けているcase。
 
-The output shape is defined by `schemas/eval_result.schema.json`, and `examples/eval_results/sample_eval_result.json` provides a public-safe sample.
+output shapeは `schemas/eval_result.schema.json` で定義され、`examples/eval_results/sample_eval_result.json` がpublic-safe sampleを提供します。
 
 ## Risk Score
 
-`src/risk_score.ts` uses `config/risk_policy.json` to score:
+`src/risk_score.ts` は `config/risk_policy.json` を使って次をscoreします。
 
-- Dangerous terms.
-- Overbroad access.
-- Real-log-like collection requests.
-- Review gate bypass.
-- Public release risk.
+- Dangerous terms。
+- Overbroad access。
+- Real-log-like collection requests。
+- Review gate bypass。
+- Public release risk。
 
-The score maps to `low`, `medium`, `high`, or `blocked`. It is deterministic and local; it does not call external APIs.
+scoreは `low`、`medium`、`high`、`blocked` に対応します。処理はdeterministicかつlocalで、外部APIを呼びません。
 
 ## Reports
 
-Run:
+実行します。
 
 ```bash
 npm run report
 ```
 
-The report generator combines validation, public-safety scan, evaluation, and workflow summary into `reports/latest.md`.
+report generatorはvalidation、public-safety scan、evaluation、workflow summaryを統合し、`reports/latest.md` を生成します。
 
 ## Regression
 
-Run:
+実行します。
 
 ```bash
 npm run regression
 ```
 
-`src/regression_check.ts` compares the current eval result against `baselines/eval_baseline.json`. It watches pass, needs-review, fail, blocked-risk, and high-risk counts. Worsening counts produce `needs_review` or `blocked`.
+`src/regression_check.ts` は現在のeval resultを `baselines/eval_baseline.json` と比較します。pass、needs-review、fail、blocked-risk、high-risk countを監視し、悪化があれば `needs_review` または `blocked` を返します。
 
 ## Quality Gate
 
-Run:
+実行します。
 
 ```bash
 npm run gate
 ```
 
-`src/quality_gate.ts` combines validation, safety scan, eval, regression, risk scoring, and review result status into one publication-readiness result:
+`src/quality_gate.ts` はvalidation、safety scan、eval、regression、risk scoring、review result statusを統合し、publication-readiness resultを一つにまとめます。
 
-- `pass`: ready to proceed to final public review.
-- `needs_review`: mechanically usable but human review is still required.
-- `blocked`: must be fixed before publication review.
+- `pass`: final public reviewへ進める。
+- `needs_review`: 機械的には利用可能だが、人間のreviewがまだ必要。
+- `blocked`: publication reviewへ進む前に修正が必要。
 
-Generated execution evidence is written under `artifacts/latest/`.
+生成されたexecution evidenceは `artifacts/latest/` に書き込まれます。
 
 ## Human Evaluation
 
-Mechanical validation is not enough. Reviewers should still inspect:
+mechanical validationだけでは不十分です。reviewerは次を確認します。
 
-- Whether the task is realistic and bounded.
-- Whether the expected output is useful.
-- Whether checks are strong enough to catch failure.
-- Whether risk controls are concrete.
-- Whether public-safety language is only checklist language.
+- taskが現実的でboundedか。
+- expected outputが有用か。
+- checkがfailureを捕まえる強さを持つか。
+- risk controlが具体的か。
+- public-safety languageがchecklist languageに留まっているか。
 
 ## Regression Use
 
-When prompts or schemas change, run:
+promptやschemaを変更した場合は次を実行します。
 
 ```bash
 npm run smoke
@@ -135,4 +135,4 @@ npm run gate
 npm run test
 ```
 
-If a golden case fails, decide whether the case or the schema should change. Do not weaken the schema only to make the test pass.
+golden caseがfailした場合、caseを変えるべきかschemaを変えるべきかを判断します。testを通すためだけにschemaを弱めないでください。
