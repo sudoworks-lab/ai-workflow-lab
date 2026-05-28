@@ -39,9 +39,7 @@ rg -n "token|secret|password|api_key|credential|client_secret|private|customer|é
 
 ## License And Release Checks
 
-- Review `LICENSE_CANDIDATE.md`.
-- Decide whether to convert `LICENSE_CANDIDATE.md` into a formal `LICENSE` file before public release.
-- Do not treat the license candidate as the final license.
+- Confirm that `LICENSE` is present and contains the intended MIT terms and copyright line.
 - Confirm that `.github/workflows/ci.yml` should be enabled as-is after publication.
 - Confirm that CI runs `npm ci`, typecheck, build, validate, scan, summary, eval, regression, gate, report, test, and smoke.
 - Confirm that no GitHub repository is created until the manual public review is complete.
@@ -49,7 +47,6 @@ rg -n "token|secret|password|api_key|credential|client_secret|private|customer|é
 ## Known Weak Points
 
 - CI is provided as a candidate workflow but has not been exercised in a remote repository.
-- License is represented by `LICENSE_CANDIDATE.md`; a formal license file is not selected yet.
 - The simplified validator is intentionally not a complete JSON Schema implementation.
 - Shell entrypoints are compatibility launchers only; TypeScript npm scripts are the maintained interface.
 - Risk scoring is heuristic and should not be treated as a complete safety classifier.
@@ -60,4 +57,4 @@ rg -n "token|secret|password|api_key|credential|client_secret|private|customer|é
 - Keep SRE, Platform Engineering, AIOps, and LLM Ops as the framing.
 - Keep social posting and article-generation use cases out of the main narrative.
 - Prefer small, verifiable workflow examples over broad automation claims.
-- Stop feature additions until README, diagrams, license choice, CI behavior, and public-safety review are complete.
+- Stop feature additions until README, diagrams, CI behavior, and public-safety review are complete.

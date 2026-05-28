@@ -75,7 +75,7 @@ const REQUIRED_FILES = [
   "docs/adr/0005-regression-and-quality-gate.md",
   "docs/walkthrough.md",
   ".github/workflows/ci.yml",
-  "LICENSE_CANDIDATE.md",
+  "LICENSE",
   "reports/.gitkeep",
   "artifacts/.gitkeep",
   "artifacts/latest/.gitkeep",

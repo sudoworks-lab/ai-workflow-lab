@@ -71,6 +71,6 @@ Review these files in order:
 5. `baselines/eval_baseline.json`
 6. `docs/adr/0005-regression-and-quality-gate.md`
 7. `TODO_public_review.md`
-8. `LICENSE_CANDIDATE.md`
+8. `LICENSE`
 
 Be ready to explain why the quality gate can be `needs_review` while the command succeeds: negative cases and public-review items are expected to require human judgment before release.

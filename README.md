@@ -87,7 +87,7 @@ The quality gate can return `needs_review` while commands still pass. That is ex
 ├── reports/latest.md            generated Markdown report
 ├── docs/                        architecture, operations, evaluation, walkthrough, ADRs, images
 ├── .github/workflows/ci.yml     CI candidate
-├── LICENSE_CANDIDATE.md         pre-publication license decision note
+├── LICENSE                      MIT license
 └── TODO_public_review.md        final public-review checklist
 ```
 
@@ -132,4 +132,4 @@ npm run cli -- run-all
 rg -n "token|secret|password|api_key|credential|client_secret|private|customer|顧客|社内|実名|email|mail" .
 ```
 
-Then inspect `TODO_public_review.md`, `reports/latest.md`, `artifacts/latest/`, the SVG diagrams, and `LICENSE_CANDIDATE.md`. The formal license is intentionally not decided in this file; choose it before public release.
+Then inspect `TODO_public_review.md`, `reports/latest.md`, `artifacts/latest/`, the SVG diagrams, and `LICENSE`.

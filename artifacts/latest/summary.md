@@ -17,7 +17,7 @@ Run receipts:
 - sample-2026-05-28-0001: pass docs_maintenance. Checks passed: 3/3. Artifacts: docs/workflow.md, examples/golden_cases/docs_maintenance.json, examples/run_receipts/sample_receipt.json.
 
 Review results:
-- sample-review-2026-05-28-0001: revise. The synthetic workflow result is structurally valid, but public review remains required before release. Required: Choose a formal license before publication. / Confirm all risky-term hits are checklist or policy language.
+- sample-review-2026-05-28-0001: revise. The synthetic workflow result is structurally valid, but public review remains required before release. Required: Confirm all risky-term hits are checklist or policy language.
 
 Risk profile:
 - high: 3 case(s)
@@ -30,6 +30,6 @@ Evidence commands recorded in receipts:
 
 Next review actions:
 - Perform human public review before publishing.
-- Decide whether to add a license.
+- Confirm that the published repository includes the intended MIT license text.
 - Review negative golden cases and decide whether more rejection paths are needed.
 - Run the full smoke test, inspect scan output, and complete the manual public review checklist.

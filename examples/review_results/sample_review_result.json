@@ -8,7 +8,6 @@
     "Smoke test completed with summary generation."
   ],
   "issues": [
-    "License decision is still pending.",
     "Negative cases should be reviewed as examples of rejection behavior."
   ],
   "safety_findings": [
@@ -20,7 +19,6 @@
     "CI candidate has not been enabled in a remote repository."
   ],
   "required_changes": [
-    "Choose a formal license before publication.",
     "Confirm all risky-term hits are checklist or policy language."
   ],
   "next_action": "Run the full smoke test, inspect scan output, and complete the manual public review checklist."

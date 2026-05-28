@@ -84,7 +84,7 @@
   "summary": "Synthetic sample receipt showing how a documentation-maintenance workflow can be recorded, validated, reviewed, and improved.",
   "next_actions": [
     "Perform human public review before publishing.",
-    "Decide whether to add a license.",
+    "Confirm that the published repository includes the intended MIT license text.",
     "Review negative golden cases and decide whether more rejection paths are needed."
   ]
 }

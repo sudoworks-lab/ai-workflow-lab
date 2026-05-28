@@ -21,7 +21,7 @@ const SCAN_ROOTS = [
   "config",
   "workflow.config.json",
   "reports",
-  "LICENSE_CANDIDATE.md",
+  "LICENSE",
   "TODO_public_review.md",
 ];
 const RISK_PATTERN =
