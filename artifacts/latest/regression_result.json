@@ -1,9 +1,9 @@
 {
-  "regression_id": "regression-2026-05-28",
-  "generated_at": "2026-05-28T16:35:50.505Z",
+  "regression_id": "regression-2026-06-04",
+  "generated_at": "2026-06-04T15:04:39.498Z",
   "status": "pass",
   "baseline_ref": "baselines/eval_baseline.json",
-  "current_eval_id": "eval-2026-05-28",
+  "current_eval_id": "eval-2026-06-04",
   "baseline": {
     "passed": 3,
     "needs_review": 3,

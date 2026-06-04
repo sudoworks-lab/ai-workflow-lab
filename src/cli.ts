@@ -34,7 +34,7 @@ const COMMANDS: Record<string, Command> = {
     run: scanMain,
   },
   summary: {
-    description: "Print the portfolio workflow summary.",
+    description: "Print the workflow summary.",
     run: summaryMain,
   },
   eval: {
