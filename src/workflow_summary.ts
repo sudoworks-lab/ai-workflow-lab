@@ -105,9 +105,9 @@ export function buildWorkflowSummary(): string {
   const nextActions = receipts.flatMap((receipt) => receipt.next_actions);
 
   return [
-    "AI Workflow Lab Portfolio Summary",
+    "AI Workflow Lab Summary",
     "",
-    "What it demonstrates:",
+    "What this checks:",
     "- A local, public-safe workflow for bounded AI-assisted engineering work.",
     "- Structured examples, run receipts, validation, safety scanning, and review gates.",
     "- TypeScript npm scripts for repeatable checks without external APIs or real data.",

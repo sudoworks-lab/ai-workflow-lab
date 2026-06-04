@@ -1,6 +1,6 @@
 # AI Workflow Lab Report
 
-Generated at: 2026-05-28T18:39:23.205Z
+Generated at: 2026-06-04T14:46:36.560Z
 
 ## Status
 
@@ -59,9 +59,9 @@ Generated at: 2026-05-28T18:39:23.205Z
 ## Workflow Summary
 
 ```text
-AI Workflow Lab Portfolio Summary
+AI Workflow Lab Summary
 
-What it demonstrates:
+What this checks:
 - A local, public-safe workflow for bounded AI-assisted engineering work.
 - Structured examples, run receipts, validation, safety scanning, and review gates.
 - TypeScript npm scripts for repeatable checks without external APIs or real data.

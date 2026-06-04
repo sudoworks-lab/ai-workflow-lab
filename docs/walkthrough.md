@@ -1,6 +1,6 @@
 # Walkthrough
 
-このwalkthroughは、公開前レビューや面接での説明前に、このrepoの要点を短時間で把握するためのものです。
+このwalkthroughは、公開前レビューのために、このrepoの要点を短時間で把握するためのものです。
 
 ## 3分: シグナルを読む
 
@@ -60,7 +60,7 @@ system shapeを理解するには、次の順に見ます。
 
 設計はlocal-firstかつpublic-safeにしています。特定のmodel vendorに依存せず、AI作業を制御・評価・証跡化するworkflow mechanicsを示すためです。
 
-## 面接前に見る順番
+## 公開前に見る順番
 
 1. `README.md`
 2. `reports/latest.md`

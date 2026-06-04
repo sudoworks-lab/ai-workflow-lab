@@ -36,7 +36,7 @@ public-safety scanだけを実行します。
 npm run scan
 ```
 
-portfolio workflow summaryを生成します。
+workflow summaryを生成します。
 
 ```bash
 npm run summary

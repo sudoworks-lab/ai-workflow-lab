@@ -139,7 +139,7 @@ export function main(): number {
 
     section("workflow summary");
     const summary = buildWorkflowSummary();
-    if (!summary.includes("AI Workflow Lab Portfolio Summary")) {
+    if (!summary.includes("AI Workflow Lab Summary")) {
       throw new Error("workflow summary did not include expected heading");
     }
     writeTextArtifact("summary.md", `${summary}\n`);
