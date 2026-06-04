@@ -1,7 +1,7 @@
 {
-  "name": "ai-workflow-lab-public",
+  "name": "ai-workflow-lab",
   "version": "0.1.0",
-  "description": "Public-safe AI workflow portfolio checks and summaries.",
+  "description": "Local AI workflow checks and summaries.",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "tsc",
