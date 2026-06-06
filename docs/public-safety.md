@@ -1,6 +1,6 @@
 # Public Safety
 
-public safetyはこのrepoのfirst-class gateです。sampleはworkflow designを説明するためのものであり、実在する人物、組織、system、operational dataを公開しないことを前提にします。
+public safetyはこのrepoのfirst-class gateです。公開済みrepoとして、sampleはworkflow designを説明するためのものであり、実在する人物、組織、system、operational dataを公開しないことを前提にします。
 
 ## Excluded Content
 
@@ -45,12 +45,12 @@ allowlisted hitには実値を含めてはいけません。
 - internal procedureではなくoperational patternを説明する。
 - 不確かな詳細は公開せず、review TODOとして残す。
 
-## Pre-Publish Checklist
+## 公開状態維持チェック
 
 1. `npm run smoke` を実行する。
 2. `npm run scan` の全outputを確認する。
 3. 残ったrisky termがchecklistまたはpolicy termであることを確認する。
-4. exampleがsyntheticであることを確認する。
+4. exampleと、追跡対象の `artifacts/latest/` がsyntheticであることを確認する。
 5. READMEがproduction readinessを過剰に主張していないことを確認する。
 6. `TODO_public_review.md` に未解決blockerがないことを確認する。
 
