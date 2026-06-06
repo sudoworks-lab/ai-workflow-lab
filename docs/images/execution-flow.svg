@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="420" viewBox="0 0 1180 420" role="img" aria-labelledby="title desc">
-  <title id="title">Execution flow</title>
-  <desc id="desc">A prompt or task moves through validation, safety scan, eval, risk score, regression, quality gate, report, human review, and next action.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="520" viewBox="0 0 1180 520" role="img" aria-labelledby="title desc">
+  <title id="title">AI依頼からレポート生成までの処理フロー</title>
+  <desc id="desc">AIへの依頼と結果の記録から、形式確認、公開リスク確認、評価、差分確認、レビュー判定、Markdown レポート生成までの処理フロー。</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
@@ -10,63 +10,70 @@
       .step { fill: #ffffff; stroke: #64748b; stroke-width: 1.8; rx: 8; }
       .gate { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; rx: 8; }
       .evidence { fill: #f3fbf6; stroke: #16a34a; stroke-width: 2; rx: 8; }
-      .human { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; rx: 8; }
+      .info { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; rx: 8; }
       .label { font-family: Arial, sans-serif; font-size: 15px; fill: #0f172a; font-weight: 700; }
       .small { font-family: Arial, sans-serif; font-size: 12px; fill: #475569; }
       .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
     </style>
   </defs>
-  <rect class="bg" x="0" y="0" width="1180" height="420" />
+  <rect class="bg" x="0" y="0" width="1180" height="520" />
 
-  <rect class="step" x="35" y="70" width="130" height="70" />
-  <text class="label" x="66" y="101">prompt</text>
-  <text class="small" x="71" y="122">task</text>
+  <rect class="step" x="30" y="72" width="145" height="78" />
+  <text class="label" x="54" y="104">AIへの依頼と結果</text>
+  <text class="label" x="77" y="124">の記録</text>
+  <text class="small" x="42" y="142">依頼文 / 実行記録 / レビュー結果</text>
 
-  <rect class="step" x="205" y="70" width="130" height="70" />
-  <text class="label" x="246" y="112">validate</text>
+  <rect class="step" x="195" y="72" width="145" height="78" />
+  <text class="label" x="223" y="104">JSON形式の</text>
+  <text class="label" x="252" y="124">確認</text>
+  <text class="small" x="224" y="142">schemas と照合</text>
 
-  <rect class="step" x="375" y="70" width="130" height="70" />
-  <text class="label" x="404" y="101">safety</text>
-  <text class="small" x="415" y="122">scan</text>
+  <rect class="step" x="360" y="72" width="145" height="78" />
+  <text class="label" x="389" y="104">公開リスクの</text>
+  <text class="label" x="417" y="124">検出</text>
+  <text class="small" x="388" y="142">危険語と公開前観点</text>
 
-  <rect class="step" x="545" y="70" width="130" height="70" />
-  <text class="label" x="596" y="112">eval</text>
+  <rect class="step" x="525" y="72" width="145" height="78" />
+  <text class="label" x="553" y="104">想定ケースとの</text>
+  <text class="label" x="582" y="124">比較</text>
+  <text class="small" x="551" y="142">想定ケース / 注意ケース</text>
 
-  <rect class="step" x="715" y="70" width="130" height="70" />
-  <text class="label" x="744" y="101">risk score</text>
+  <rect class="step" x="690" y="72" width="145" height="78" />
+  <text class="label" x="718" y="104">前回結果との</text>
+  <text class="label" x="734" y="124">差分確認</text>
+  <text class="small" x="723" y="142">baseline と比較</text>
 
-  <rect class="step" x="885" y="70" width="130" height="70" />
-  <text class="label" x="915" y="112">regression</text>
+  <path class="arrow" d="M175 111 L190 111" />
+  <path class="arrow" d="M340 111 L355 111" />
+  <path class="arrow" d="M505 111 L520 111" />
+  <path class="arrow" d="M670 111 L685 111" />
 
-  <path class="arrow" d="M165 105 L200 105" />
-  <path class="arrow" d="M335 105 L370 105" />
-  <path class="arrow" d="M505 105 L540 105" />
-  <path class="arrow" d="M675 105 L710 105" />
-  <path class="arrow" d="M845 105 L880 105" />
+  <path class="arrow" d="M835 111 C905 111 910 216 845 216" />
 
-  <path class="arrow" d="M1015 105 C1085 105 1085 210 1015 210" />
+  <rect class="gate" x="690" y="177" width="145" height="78" />
+  <text class="label" x="710" y="209">人間レビュー</text>
+  <text class="label" x="726" y="229">要否の判定</text>
+  <text class="small" x="723" y="247">通過 / 要レビュー</text>
 
-  <rect class="gate" x="885" y="175" width="130" height="70" />
-  <text class="label" x="916" y="203">quality</text>
-  <text class="small" x="925" y="224">gate</text>
+  <rect class="evidence" x="525" y="177" width="145" height="78" />
+  <text class="label" x="543" y="209">Markdown</text>
+  <text class="label" x="549" y="229">レポート生成</text>
+  <text class="small" x="552" y="247">reports/latest.md</text>
 
-  <rect class="evidence" x="715" y="175" width="130" height="70" />
-  <text class="label" x="759" y="203">report</text>
-  <text class="small" x="746" y="224">artifacts</text>
+  <rect class="info" x="360" y="177" width="145" height="78" />
+  <text class="label" x="395" y="209">証跡の整理</text>
+  <text class="small" x="382" y="229">summary / eval / regression</text>
+  <text class="small" x="406" y="247">artifacts/latest/</text>
 
-  <rect class="human" x="545" y="175" width="130" height="70" />
-  <text class="label" x="585" y="203">human</text>
-  <text class="small" x="584" y="224">review</text>
+  <rect class="step" x="195" y="177" width="145" height="78" />
+  <text class="label" x="232" y="209">目視確認と</text>
+  <text class="label" x="238" y="229">次の対応</text>
+  <text class="small" x="220" y="247">公開判断は人間が担当</text>
 
-  <rect class="step" x="375" y="175" width="130" height="70" />
-  <text class="label" x="406" y="203">next</text>
-  <text class="small" x="403" y="224">action</text>
+  <path class="arrow" d="M690 216 L675 216" />
+  <path class="arrow" d="M525 216 L510 216" />
+  <path class="arrow" d="M360 216 L345 216" />
 
-  <path class="arrow" d="M885 210 L850 210" />
-  <path class="arrow" d="M715 210 L680 210" />
-  <path class="arrow" d="M545 210 L510 210" />
-
-  <text class="small" x="380" y="305">Pass: proceed to publish preparation</text>
-  <text class="small" x="380" y="330">Needs review: resolve evidence, safety, or license questions</text>
-  <text class="small" x="380" y="355">Blocked: fix before public release work continues</text>
+  <text class="small" x="196" y="330">`run-all` はこの流れの後に test と smoke も実行</text>
+  <text class="small" x="196" y="354">図は AI への依頼記録から Markdown レポート生成までの主処理を示す</text>
 </svg>

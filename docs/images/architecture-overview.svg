@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="640" viewBox="0 0 1180 640" role="img" aria-labelledby="title desc">
-  <title id="title">Architecture overview</title>
-  <desc id="desc">Inputs flow through the CLI and TypeScript core into validation, safety scanning, summary, eval, regression, risk, gate, and report outputs.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="680" viewBox="0 0 1180 680" role="img" aria-labelledby="title desc">
+  <title id="title">入力から出力までの構成</title>
+  <desc id="desc">AIへの依頼と結果の記録が CLI と各確認モジュールを通り、証跡と Markdown レポートにまとまる構成図。</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
@@ -11,69 +11,70 @@
       .core { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; rx: 8; }
       .module { fill: #f6f7f9; stroke: #64748b; stroke-width: 1.6; rx: 7; }
       .output { fill: #f3fbf6; stroke: #16a34a; stroke-width: 2; rx: 8; }
-      .label { font-family: Arial, sans-serif; font-size: 17px; fill: #0f172a; font-weight: 700; }
-      .text { font-family: Arial, sans-serif; font-size: 14px; fill: #334155; }
+      .label { font-family: Arial, sans-serif; font-size: 18px; fill: #0f172a; font-weight: 700; }
+      .text { font-family: Arial, sans-serif; font-size: 15px; fill: #334155; }
       .small { font-family: Arial, sans-serif; font-size: 13px; fill: #475569; }
       .arrow { stroke: #334155; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
-      .line { stroke: #94a3b8; stroke-width: 1.4; fill: none; }
+      .line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
     </style>
   </defs>
-  <rect class="bg" x="0" y="0" width="1180" height="640" />
+  <rect class="bg" x="0" y="0" width="1180" height="680" />
 
-  <rect class="panel" x="40" y="70" width="250" height="500" />
-  <text class="label" x="70" y="110">Inputs</text>
-  <text class="text" x="70" y="155">schemas</text>
-  <text class="text" x="70" y="195">examples</text>
-  <text class="text" x="70" y="235">templates</text>
-  <text class="text" x="70" y="275">workflow.config.json</text>
-  <text class="text" x="70" y="315">risk policy</text>
-  <text class="small" x="70" y="380">Public-safe sample data</text>
-  <text class="small" x="70" y="405">and local configuration</text>
+  <rect class="panel" x="40" y="70" width="270" height="540" />
+  <text class="label" x="75" y="112">入力と記録</text>
+  <text class="text" x="75" y="160">AIへの依頼と結果の記録</text>
+  <text class="text" x="75" y="200">schemas / examples</text>
+  <text class="text" x="75" y="240">workflow.config.json</text>
+  <text class="text" x="75" y="280">config/risk_policy.json</text>
+  <text class="text" x="75" y="320">baselines/eval_baseline.json</text>
+  <text class="small" x="75" y="390">合成サンプルとローカル設定だけで確認</text>
+  <text class="small" x="75" y="415">実データや外部 LLM API は使わない</text>
 
-  <rect class="core" x="380" y="55" width="420" height="95" />
-  <text class="label" x="520" y="95">CLI</text>
-  <text class="text" x="465" y="125">npm run cli -- &lt;command&gt;</text>
+  <rect class="core" x="365" y="55" width="450" height="105" />
+  <text class="label" x="548" y="96">TypeScript CLI</text>
+  <text class="text" x="470" y="128">npm run cli -- run-all</text>
+  <text class="small" x="437" y="148">記録内容を順番に確認して証跡を生成</text>
 
-  <rect class="core" x="380" y="185" width="420" height="85" />
-  <text class="label" x="520" y="220">TypeScript Core</text>
-  <text class="text" x="470" y="248">src/*.ts local workflow tools</text>
+  <rect class="module" x="340" y="220" width="200" height="72" />
+  <text class="text" x="392" y="250">JSON形式の確認</text>
+  <text class="small" x="380" y="273">schemas と examples を照合</text>
 
-  <rect class="module" x="340" y="315" width="170" height="55" />
-  <text class="text" x="388" y="348">validate</text>
-  <rect class="module" x="535" y="315" width="170" height="55" />
-  <text class="text" x="560" y="348">public safety scan</text>
-  <rect class="module" x="730" y="315" width="170" height="55" />
-  <text class="text" x="766" y="348">workflow summary</text>
+  <rect class="module" x="570" y="220" width="200" height="72" />
+  <text class="text" x="620" y="250">公開リスクの検出</text>
+  <text class="small" x="595" y="273">docs や templates の危険語確認</text>
 
-  <rect class="module" x="340" y="395" width="170" height="55" />
-  <text class="text" x="390" y="428">eval runner</text>
-  <rect class="module" x="535" y="395" width="170" height="55" />
-  <text class="text" x="568" y="428">regression check</text>
-  <rect class="module" x="730" y="395" width="170" height="55" />
-  <text class="text" x="770" y="428">risk score</text>
+  <rect class="module" x="340" y="330" width="200" height="72" />
+  <text class="text" x="388" y="360">想定ケースとの比較</text>
+  <text class="small" x="370" y="383">想定ケースと注意ケースを評価</text>
 
-  <rect class="module" x="440" y="475" width="170" height="55" />
-  <text class="text" x="482" y="508">quality gate</text>
-  <rect class="module" x="635" y="475" width="170" height="55" />
-  <text class="text" x="674" y="508">report generator</text>
+  <rect class="module" x="570" y="330" width="200" height="72" />
+  <text class="text" x="610" y="360">前回結果との差分確認</text>
+  <text class="small" x="608" y="383">baseline との差分を整理</text>
 
-  <rect class="output" x="905" y="70" width="235" height="500" />
-  <text class="label" x="940" y="110">Outputs</text>
-  <text class="text" x="940" y="155">artifacts</text>
-  <text class="text" x="940" y="195">reports</text>
-  <text class="text" x="940" y="235">review result</text>
-  <text class="text" x="940" y="275">eval result</text>
-  <text class="small" x="940" y="380">Generated evidence for</text>
-  <text class="small" x="940" y="405">human public review</text>
+  <rect class="module" x="340" y="440" width="200" height="72" />
+  <text class="text" x="376" y="470">人間レビュー要否の判定</text>
+  <text class="small" x="374" y="493">gate で要レビュー有無を整理</text>
 
-  <path class="arrow" d="M290 320 C330 320 335 228 378 228" />
-  <path class="arrow" d="M590 150 L590 182" />
-  <path class="arrow" d="M590 270 L590 305" />
-  <path class="line" d="M425 370 L425 390" />
-  <path class="line" d="M620 370 L620 390" />
-  <path class="line" d="M815 370 L815 390" />
-  <path class="line" d="M425 450 L525 475" />
-  <path class="line" d="M620 450 L525 475" />
-  <path class="line" d="M815 450 L720 475" />
-  <path class="arrow" d="M805 505 C860 505 855 320 902 320" />
+  <rect class="module" x="570" y="440" width="200" height="72" />
+  <text class="text" x="616" y="470">Markdownレポート生成</text>
+  <text class="small" x="596" y="493">reports/latest.md を出力</text>
+
+  <rect class="output" x="870" y="70" width="270" height="540" />
+  <text class="label" x="918" y="112">出力と証跡</text>
+  <text class="text" x="918" y="160">artifacts/latest/</text>
+  <text class="text" x="918" y="200">reports/latest.md</text>
+  <text class="text" x="918" y="240">summary / eval / regression</text>
+  <text class="text" x="918" y="280">quality gate の結果</text>
+  <text class="small" x="918" y="390">人間レビュー用の確認材料を集約</text>
+  <text class="small" x="918" y="415">公開可否の判断は自動化しない</text>
+
+  <path class="arrow" d="M310 330 C350 330 352 108 362 108" />
+  <path class="arrow" d="M590 160 L590 208" />
+  <path class="line" d="M540 256 L570 256" />
+  <path class="line" d="M440 292 L440 330" />
+  <path class="line" d="M670 292 L670 330" />
+  <path class="line" d="M540 366 L570 366" />
+  <path class="line" d="M440 402 L440 440" />
+  <path class="line" d="M670 402 L670 440" />
+  <path class="arrow" d="M770 476 C835 476 828 330 866 330" />
 </svg>

@@ -27,11 +27,17 @@ AIに作業を依頼すると、指示内容、出力、確認観点、レビュ
 
 ## Architecture
 
-![Architecture Overview](docs/images/architecture-overview.svg)
+主要な入力、確認モジュール、出力先の関係です。
+記録した内容をローカルの TypeScript CLI で確認し、証跡とレポートにまとめます。
+
+![入力から出力までの構成](docs/images/architecture-overview.svg)
 
 ## Flow
 
-![Execution Flow](docs/images/execution-flow.svg)
+AIへの依頼内容と結果を記録してから、形式確認、比較、判定を経て Markdown レポートを生成する流れです。
+`run-all` では、この流れに続いてテストと smoke も実行します。
+
+![AI依頼からレポート生成までの処理フロー](docs/images/execution-flow.svg)
 
 ## Quick Start
 
